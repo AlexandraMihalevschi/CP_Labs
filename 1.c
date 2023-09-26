@@ -44,63 +44,9 @@ int main()
     inputarray(a, length);
     printf("Input array b: ");
     inputarray(b, length);
-    
-    /*Sum of arrays*/  
-    l=0;
-    printf("\nThe sum of 2 arrays: ");
-    for(int i=0; i<length; ++i)
-    {
-        l=a[i]+b[i];
-        printf("%d  ", l);
-    }
 
-    /*The sum of even numbers*/
-    e=0;
-    printf("\nThe sum of even numbers in array b: ");
-    for(int i=0; i<length; ++i)
-    {
-        if (b[i]%2==0)
-        {
-            e = e + b[i];
-        }
-    }
-    printf("%d ", e);
-
-    /*The sum of odd numbers*/
-    e=0;
-    printf("\nThe sum of odd numbers in array a: ");
-    for(int i=0; i<length; ++i)
-    {
-        if (a[i]%2!=0)
-        {
-            e = e + a[i];
-        }
-    }
-    printf("%d ", e);
-
-    /*Number of prime numbers*/
-	int counter=0, num=0; 
-	for(int i=0; i<length; ++i)
-    {
-        if (a[i]>1)
-        {
-            for(int j=2; j<a[i]; ++j)
-	        {
-		        if(a[i]%j==0)
-		        {
-		    	    counter=1;
-                    break;
-		        }}}
-	    if((counter==0) || (a[i]==2) || (a[i]==1))
-        {
-            ++num;
-        }
-                    
-    }
-    printf("\nNumber of prime numbers in array a: %d", num);
-
-    /*Base task*/
-    for (int i=0; i<length; ++i)
+    /*The base task*/
+        for (int i=0; i<length; ++i)
     {
         c[i]=b[i];
     }
@@ -152,5 +98,61 @@ int main()
     }
     printf("\nThe negative maximum of the array b: %d", max);
     printf("\nThe position of maximum: %d", pos_max);
+    
+    /*Sum of arrays*/  
+    l=0;
+    printf("\nThe sum of 2 arrays: ");
+    for(int i=0; i<length; ++i)
+    {
+        l=a[i]+b[i];
+        printf("%d  ", l);
+    }
+
+    /*The sum of even numbers*/
+    e=0;
+    printf("\nThe sum of even numbers in array b: ");
+    for(int i=0; i<length; ++i)
+    {
+        if (b[i]%2==0)
+        {
+            e = e + b[i];
+        }
+    }
+    printf("%d ", e);
+
+    /*The sum of odd numbers*/
+    e=0;
+    printf("\nThe sum of odd numbers in array a: ");
+    for(int i=0; i<length; ++i)
+    {
+        if (a[i]%2!=0)
+        {
+            e = e + a[i];
+        }
+    }
+    printf("%d ", e);
+
+    /*Number of prime numbers*/
+	int counter=0, num=0; 
+	for(int i=0; i<length; ++i)
+    {
+        if (a[i]>1)
+        {
+            for(int j=2; j<a[i]/2; ++j)
+	        {
+		        if(a[i]%j==0)
+		        {
+		    	    counter=1;
+                    break;
+		        }
+            }
+        }
+	    if((counter==0) || (a[i]==2))
+        {
+            ++num;
+        }                
+    }
+    printf("\nNumber of prime numbers in array a: %d", num);
+
 	return 0;
 }
