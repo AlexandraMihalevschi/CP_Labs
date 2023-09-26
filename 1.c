@@ -98,6 +98,8 @@ int main()
                     
     }
     printf("\nNumber of prime numbers in array a: %d", num);
+
+    /*Base task*/
     for (int i=0; i<length; ++i)
     {
         c[i]=b[i];
