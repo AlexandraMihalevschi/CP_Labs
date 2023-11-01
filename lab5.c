@@ -175,7 +175,7 @@ void negative_numbers_sum (int *array, int size)
             s = s + *(array+i);
         }
     }
-    printf("\nThe sum: %d", s);
+    printf("\nThe sum of negative numbers: %d", s);
 }
 
 int main()
