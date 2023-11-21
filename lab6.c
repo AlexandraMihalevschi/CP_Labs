@@ -69,7 +69,7 @@ int tree_height(struct node *root)
 {
     if (root == NULL)
     {
-        return 0;
+        return;
     }
 
     int left_height = tree_height(root->left);
@@ -82,7 +82,7 @@ int leaf_count(struct node *root)
 {
     if (root == NULL)
     {
-        return 0;
+        return;
     }
     if (root->left == NULL && root->right == NULL)
     {
@@ -123,22 +123,6 @@ int isValidBST(struct node *root)
     return bst(root, LONG_MIN, LONG_MAX);
 }
 
-int max(int a, int b)
-{
-    return (a > b) ? a : b;
-}
-
-int height(struct node *root)
-{
-    if (root == NULL)
-        return 0;
-
-    int left_height = height(root->left);
-    int right_height = height(root->right);
-
-    return 1 + max(left_height, right_height);
-}
-
 int is_balanced(struct node *root)
 {
     if (root == NULL)
@@ -146,8 +130,8 @@ int is_balanced(struct node *root)
         return 1;
     }
 
-    int left_height = height(root->left);
-    int right_height = height(root->right);
+    int left_height = tree_height(root->left);
+    int right_height = tree_height(root->right);
 
     if (abs(left_height - right_height) <= 1 && is_balanced(root->left) && is_balanced(root->right))
     {
@@ -247,7 +231,7 @@ int main()
     root = complete_tree(elements, root, 0, size);
 
     int space = 0;
-    int height = 10;
+    int height = 5;
     print_bt(root, space, height);
     int h_tree = tree_height(root);
     printf("Height of the Binary Tree: %d\n", h_tree);
@@ -273,6 +257,7 @@ int main()
     scanf("%d", &node_to_delete);
     root = delete_node(root, node_to_delete);
     print_bt(root, space, height);
+
     free_tree(root);
     return 0;
 }
